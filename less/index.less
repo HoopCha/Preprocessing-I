@@ -19,8 +19,7 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
-	border: 0;
-	font-size: 100%;
+	font-size: 62.5%;
 	font: inherit;
 	vertical-align: baseline;
 }
@@ -30,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+	line-height: 1.2;
 }
 ol, ul {
 	list-style: none;
@@ -50,10 +49,182 @@ table {
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+	max-width:100%;
 }
 
 html, body {
     height: 100%;
 }
 
+
+/*Start of my custom code */
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+/*Variables*/
+@barcolor: darkred;
+@bodycolor: firebrick;
+@fontsize: 1.8rem;
+@customfont:'Montserrat', sans-serif;
+
+/*Mix-ins*/
+
+
+.basicflexbox {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+  }
+.fontsizing {
+	font-size: 1.8rem;
+	color: white;
+}
+.paragraphcontent {
+	margin: 10px 0px;
+}
+
+.container {
+	width: 880px;
+	margin: 0 auto;
+	header{
+		.basicflexbox();
+		nav {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			width:80%;
+			@media(max-width: 500px) {	
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				align-items: center;
+			}
+			a {
+				.fontsizing();
+				text-decoration: none;
+				@media(max-width: 500px) {
+					padding-top:10px;
+					margin:10px 0px 0px 0px;
+					width:100%;
+					border-top: 1px solid white;
+					text-align: center;
+				}
+			}
+			a:last-child {
+				@media(max-width: 500px) {
+				border-bottom: 1px solid white;
+				padding-bottom: 10px;
+				}
+			}
+			a:hover {
+				color:white;
+				text-decoration: underline;
+			}
+			
+		}
+		img{
+			height:70px;
+			@media(max-width: 500px) {	
+				margin: 20px 0px;
+				height: 90px;
+			}
+		}
+		background: @barcolor;
+		padding: 15px 0px;
+		border-bottom: 2px solid black;
+		@media(max-width: 500px) {	
+			flex-direction: column;
+			align-content: center;
+		}
+	}
+	.maincontent{
+		padding: 20px;
+		background:@bodycolor;
+		display: flex;
+		justify-content: space-around;
+		align-items: baseline;
+		.intro {
+			@media(max-width: 500px) {	
+				width: 80%;
+			}
+			width:60%;
+			h2 {
+				.fontsizing();
+			}
+			p{
+				font-family:@customfont;
+				.paragraphcontent();
+				color: white;
+			}
+		}
+		.skills{
+			h2 {
+				.fontsizing();
+				text-align: center;
+				border-bottom: 1px solid black;
+			}
+			ul{
+				li{
+					font-family:@customfont;
+					.paragraphcontent();
+					color: white;
+				}
+			}
+		}
+		@media(max-width: 500px) {	
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+	.bottomcontent{
+		background:@bodycolor;
+		padding: 20px;
+		border-top: 2px solid black;
+		border-bottom: 2px solid black;
+		h2{
+			.fontsizing();
+			text-align: center;
+			padding: 15px;
+		}
+		.workhistory{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
+			font-family:@customfont;
+			padding-bottom: 10px;
+			@media(max-width: 500px) {	
+				flex-direction: column;
+				align-items: center;
+			}
+			.jobinfo{
+				color: white;
+				width:40%;
+				padding: 15px;
+				border: 1px solid white;
+				margin: 5px;
+				background:indianred;
+				@media(max-width: 500px) {	
+					width:80%;
+				}
+				p{
+					padding: 7px 0px;
+				}
+			}
+		}
+	.contact {
+		h3{
+			.fontsizing();
+			padding-bottom: 10px;
+		}
+		padding: 20px;
+		border-top: 2px solid black;
+		font-family:@customfont;
+	}
+	}
+	footer{
+		padding: 20px;
+		color: white;
+		background:@barcolor
+	}
+
+}
